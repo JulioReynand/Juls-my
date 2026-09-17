@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JulMail 🎀 — Temp Mail Lucu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="emoji">🎀</span>
+    <span>JulMail</span>
+  </div>
+  <p class="tagline">Temp mail gemes buat nyelametin inbox utama kamu ✨</p>
+</header>
+
+<main>
+  <!-- Setup Card -->
+  <section class="card" id="setupCard">
+    <div class="address-label">✏️ Bikin alamat kamu</div>
+
+    <div class="row">
+      <input id="nameInput" type="text" placeholder="nama-kamu" autocomplete="off" spellcheck="false">
+      <span class="at">@</span>
+      <select id="domainSelect"></select>
+      <button class="btn btn-ghost btn-sm" id="refreshDomainsBtn" title="Refresh domain">🔄</button>
+    </div>
+
+    <div class="row">
+      <select id="lifespanSelect">
+        <option value="300">⏱️ 5 menit</option>
+        <option value="600" selected>⏱️ 10 menit</option>
+        <option value="900">⏱️ 15 menit</option>
+        <option value="1200">⏱️ 20 menit</option>
+        <option value="1800">⏱️ 30 menit</option>
+      </select>
+      <button class="btn" id="createBtn">🎉 Buat Inbox</button>
+      <button class="btn btn-mint" id="refreshInboxBtn">🔄 Refresh</button>
+    </div>
+
+    <!-- Inbox Address -->
+    <div id="inboxBox" class="inbox-box hidden">
+      <div class="address-label">📬 Alamat aktif kamu:</div>
+      <div class="address-box">
+        <span class="address-value" id="inboxAddress">—</span>
+        <button class="btn btn-purple btn-sm" id="copyBtn">📋 Copy</button>
+      </div>
+      <div class="timer" id="timer">⏳ Menunggu...</div>
+    </div>
+  </section>
+
+  <!-- Emails Card -->
+  <section class="card">
+    <div class="section-title">
+      <span>💌 Kotak Masuk</span>
+      <span class="counter" id="counter">0</span>
+    </div>
+
+    <div id="emailList" class="email-list">
+      <div class="empty">
+        <span class="big">📭</span>
+        <p>Belum ada surat nih… bikin inbox dulu yuk!</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Dibuat dengan 💖 — JulMail v1.0</p>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal">
+    <button class="close-btn" id="closeModal">✖</button>
+    <h2 id="modalSubject">—</h2>
+    <div class="modal-meta" id="modalMeta"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
